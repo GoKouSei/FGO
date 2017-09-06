@@ -6,41 +6,7 @@
     android:layout_height="match_parent"
     tools:context="com.gokousei.fgo_tools.MainActivity">
 
-    <!--<Button-->
-    <!--android:id="@+id/Main_Btn_Load"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:onClick="loadData"-->
-    <!--android:text="载入"-->
-    <!--app:layout_constraintStart_toStartOf="parent"-->
-    <!--app:layout_constraintTop_toTopOf="parent"-->
-    <!--android:layout_marginTop="8dp"-->
-    <!--app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--android:layout_marginBottom="8dp" />-->
-
-    <!--<TextView-->
-    <!--android:id="@+id/Main_tev_Game"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:text="TextView"-->
-    <!--app:layout_constraintEnd_toEndOf="parent"-->
-    <!--app:layout_constraintTop_toTopOf="parent"-->
-    <!--android:layout_marginTop="8dp"-->
-    <!--app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--android:layout_marginBottom="8dp" />-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:background="@color/colorPrimaryDark"
-        android:layout_gravity="start"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:text="Test"
-            android:textSize="30sp" />
-    </LinearLayout>
+<include layout="@layout/left_slip"/>
 
 
 </android.support.v4.widget.DrawerLayout>
