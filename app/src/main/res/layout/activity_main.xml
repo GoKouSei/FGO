@@ -4,9 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/drawerLayout"
     tools:context="com.gokousei.fgo_tools.MainActivity">
 
-<include layout="@layout/left_slip"/>
+
+    <TextView
+        android:id="@+id/tevTest"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="test"
+        android:textSize="35sp" />
+
+    <include
+        android:id="@+id/loadMainView"
+        layout="@layout/dogfood_calculate"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+    <include layout="@layout/left_slip" />
 
 
 </android.support.v4.widget.DrawerLayout>
