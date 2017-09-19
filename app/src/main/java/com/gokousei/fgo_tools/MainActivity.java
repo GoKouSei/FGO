@@ -5,6 +5,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import org.jsoup.Jsoup;
@@ -23,10 +25,27 @@ public class MainActivity extends BaseActivity {
         liftSlip_Tev_DogFoodCalculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                View view1=findViewById(R.id.loadMainView);
+                View view1 = findViewById(R.id.loadMainView);
                 view1.setVisibility(View.VISIBLE);
-                View view2=findViewById(R.id.tevTest);
+                View view2 = findViewById(R.id.tevTest);
                 view2.setVisibility(View.GONE);
+            }
+        });
+        Button button = findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditText editText = findViewById(R.id.editText);
+                TextView textView = findViewById(R.id.textView5);
+                String inputLevel = editText.getText().toString();
+                int level;
+                int expSum = 0;
+                level = Integer.parseInt(inputLevel);
+                for (int i = 0; i < level; i++) {
+                    expSum += i * (i + 1) / 2;
+                }
+                expSum = expSum * 100;
+                textView.setText(expSum + "");
             }
         });
     }

@@ -17,7 +17,7 @@
 
     <include
         android:id="@+id/loadMainView"
-        layout="@layout/dogfood_calculate"
+        layout="@layout/fire_calculate"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone" />
