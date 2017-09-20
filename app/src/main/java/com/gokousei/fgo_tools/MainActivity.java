@@ -1,5 +1,6 @@
 package com.gokousei.fgo_tools;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -15,14 +16,50 @@ import org.jsoup.select.Elements;
 
 public class MainActivity extends BaseActivity {
 
-    TextView liftSlip_Tev_DogFoodCalculate;
+    TextView mFireCalc;
+    TextView mFireQuantity;
+    EditText mCurLevel;
+    EditText mAimsLevel;
+    EditText mServantRare;
+    Button mConfirm;
+    Resources mRes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        liftSlip_Tev_DogFoodCalculate = findViewById(R.id.leftSlip_Tev_DogFoodCalculate);
-        liftSlip_Tev_DogFoodCalculate.setOnClickListener(new View.OnClickListener() {
+        init();
+        mClick();
+//        Button button = findViewById(R.id.button);
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                EditText editText = findViewById(R.id.editText);
+//                TextView textView = findViewById(R.id.textView5);
+//                String inputLevel = editText.getText().toString();
+//                int level;
+//                int expSum = 0;
+//                level = Integer.parseInt(inputLevel);
+//                for (int i = 0; i < level; i++) {
+//                    expSum += i * (i + 1) / 2;
+//                }
+//                expSum = expSum * 100;
+//                textView.setText(expSum + "");
+//            }
+//        });
+    }
+
+    public void init(){
+        mRes =getResources();
+        mFireCalc = findViewById(R.id.leftSlip_Tev_DogFoodCalculate);
+        mCurLevel =findViewById(R.id.fireCalc_edt_curLevel);
+        mAimsLevel =findViewById(R.id.fireCalc_edt_aimsLevel);
+//        mServantRare=findViewById(R.id.fireCalc_edt_servantRare);
+        mConfirm=findViewById(R.id.fireCalc_btn_confirm);
+        mFireQuantity=findViewById(R.id.fireCalc_tev_quantity);
+    }
+    public void mClick(){
+        mFireCalc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 View view1 = findViewById(R.id.loadMainView);
@@ -31,21 +68,16 @@ public class MainActivity extends BaseActivity {
                 view2.setVisibility(View.GONE);
             }
         });
-        Button button = findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
+        mConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EditText editText = findViewById(R.id.editText);
-                TextView textView = findViewById(R.id.textView5);
-                String inputLevel = editText.getText().toString();
-                int level;
-                int expSum = 0;
-                level = Integer.parseInt(inputLevel);
-                for (int i = 0; i < level; i++) {
-                    expSum += i * (i + 1) / 2;
-                }
-                expSum = expSum * 100;
-                textView.setText(expSum + "");
+                FireCalc fireCalc;
+                int curLevel=Integer.parseInt(mCurLevel.getText().toString());
+                int aimsLevel=Integer.parseInt(mAimsLevel.getText().toString());
+                int fireQuantity;
+                fireCalc=new FireCalc(mRes,MainActivity.this,curLevel,aimsLevel,4);
+                fireQuantity=fireCalc.fireQuantity();
+                mFireQuantity.setText(fireQuantity+"");
             }
         });
     }

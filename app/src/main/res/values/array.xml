@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="servant_rare">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
     <integer-array name="servant_exp">
+        <!--0-->
+        <item>0</item>
         <!--1-->
         <item>0</item>
         <item>100</item>
