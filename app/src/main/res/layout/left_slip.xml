@@ -3,14 +3,22 @@
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
     android:layout_gravity="start"
-    android:background="#99ccff"
+    android:background="#999999"
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/leftSlip_Tev_DogFoodCalculate"
+        android:id="@+id/leftSlip_tev_rxjw"
         android:layout_width="wrap_content"
-
         android:layout_height="wrap_content"
+        android:padding="5sp"
+        android:text="茹西教王"
+        android:textSize="35sp" />
+
+    <TextView
+        android:id="@+id/leftSlip_tev_fireCalc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5sp"
         android:text="狗粮计算"
-        android:textSize="30sp" />
+        android:textSize="35sp" />
 </LinearLayout>
