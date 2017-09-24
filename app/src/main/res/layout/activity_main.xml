@@ -14,7 +14,7 @@
         android:layout_height="match_parent" />
 
     <include
-        android:id="@+id/main_include_loadMainView"
+        android:id="@+id/main_include_loadFireCalc"
         layout="@layout/fire_calc"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

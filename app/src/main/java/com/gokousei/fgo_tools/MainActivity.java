@@ -7,7 +7,6 @@ import android.os.Message;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.View;
-import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -29,7 +28,6 @@ public class MainActivity extends BaseActivity {
     EditText mEdtAimsLevel;
     Button mBtnConfirm;
     Resources mRes;
-    DrawerLayout mDrawerLayout;
     Spinner mSpinIsWithRank;
     WebView mWebView;
 
@@ -66,21 +64,28 @@ public class MainActivity extends BaseActivity {
         mEdtAimsLevel = findViewById(R.id.fireCalc_edt_aimsLevel);
         mBtnConfirm = findViewById(R.id.fireCalc_btn_confirm);
         mTevFireQuantity = findViewById(R.id.fireCalc_tev_quantity);
-        mDrawerLayout = findViewById(R.id.main_drawerLayout);
         mSpinIsWithRank = findViewById(R.id.fireCalc_spin_isWithRank);
         mSpinIsWithRank.setSelection(0);
-        mWebView=findViewById(R.id.webView);
+        mWebView = findViewById(R.id.webView);
+    }
+
+
+    public void leftSlipSelect(View view) {
+        DrawerLayout mDrawerLayout = findViewById(R.id.main_drawerLayout);
+        View viewFireCalc = findViewById(R.id.main_include_loadFireCalc);
+        switch (view.getId()) {
+            case R.id.leftSlip_tev_rxjw:
+                mWebView.setVisibility(View.VISIBLE);
+                viewFireCalc.setVisibility(View.GONE);
+                break;
+            case R.id.leftSlip_tev_fireCalc:
+                viewFireCalc.setVisibility(View.VISIBLE);
+                mWebView.setVisibility(View.GONE);
+        }
+        mDrawerLayout.closeDrawers();
     }
 
     public void mClick() {
-        mTevFireCalc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                View view1 = findViewById(R.id.main_include_loadMainView);
-                view1.setVisibility(View.VISIBLE);
-                mDrawerLayout.closeDrawers();
-            }
-        });
         mBtnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -122,12 +127,15 @@ public class MainActivity extends BaseActivity {
         });
     }
 
-    public void mVebView(){
+    public void mVebView() {
         mWebView.setVisibility(View.VISIBLE);
-        WebSettings mWebSettings=mWebView.getSettings();
+        WebSettings mWebSettings = mWebView.getSettings();
         mWebSettings.setJavaScriptEnabled(true);
+        mWebSettings.setSupportZoom(true);
+        mWebSettings.setBuiltInZoomControls(true);
+        mWebSettings.setDisplayZoomControls(false);
         mWebView.loadUrl("https://kazemai.github.io/fgo-vz/");
-        mWebView.setWebViewClient(new WebViewClient(){
+        mWebView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 view.loadUrl(url);

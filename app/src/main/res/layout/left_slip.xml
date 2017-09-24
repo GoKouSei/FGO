@@ -10,6 +10,7 @@
         android:id="@+id/leftSlip_tev_rxjw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="leftSlipSelect"
         android:padding="5sp"
         android:text="茹西教王"
         android:textSize="35sp" />
@@ -18,6 +19,7 @@
         android:id="@+id/leftSlip_tev_fireCalc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="leftSlipSelect"
         android:padding="5sp"
         android:text="狗粮计算"
         android:textSize="35sp" />

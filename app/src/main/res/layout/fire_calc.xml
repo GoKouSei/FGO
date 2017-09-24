@@ -4,25 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
+    android:clickable="true"
+    android:focusableInTouchMode="true"
     android:layout_height="match_parent">
 
     <EditText
         android:id="@+id/fireCalc_edt_curLevel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.947"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/fireCalc_edt_aimsLevel"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.100000024"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <EditText
         android:id="@+id/fireCalc_edt_aimsLevel"
@@ -46,14 +45,14 @@
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="18dp"
         android:text="目前等级:"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/fireCalc_tev_aimsLevel"
         app:layout_constraintEnd_toStartOf="@+id/fireCalc_edt_curLevel"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.07999998"
+        app:layout_constraintVertical_bias="0.100000024"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
@@ -83,22 +82,24 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/fireCalc_tev_aimsLevel"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="@+id/fireCalc_tev_aimsLevel"
-        app:layout_constraintTop_toBottomOf="@+id/fireCalc_tev_aimsLevel"
-        app:layout_constraintHorizontal_bias="0.11" />
+        app:layout_constraintTop_toBottomOf="@+id/fireCalc_tev_aimsLevel" />
 
     <TextView
         android:id="@+id/fireCalc_tev_fitrQuantity"
         android:layout_width="wrap_content"
         android:layout_height="32dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
         android:text="需要种火数量:"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/fireCalc_tev_isWithRank"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/fireCalc_tev_isWithRank"
         app:layout_constraintTop_toBottomOf="@+id/fireCalc_tev_isWithRank"
         app:layout_constraintVertical_bias="0.04000002" />
 
@@ -107,15 +108,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
+        android:layout_marginStart="28dp"
         android:layout_marginTop="8dp"
         android:text="等待计算结果"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/fireCalc_tev_fitrQuantity"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/fireCalc_tev_fitrQuantity"
         app:layout_constraintTop_toTopOf="@+id/fireCalc_tev_fitrQuantity"
-        app:layout_constraintVertical_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/fireCalc_spin_isWithRank"
-        android:layout_marginStart="8dp" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/fireCalc_btn_confirm"
@@ -130,7 +132,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.727" />
+        app:layout_constraintVertical_bias="0.62" />
 
     <Spinner
         android:id="@+id/fireCalc_spin_isWithRank"
