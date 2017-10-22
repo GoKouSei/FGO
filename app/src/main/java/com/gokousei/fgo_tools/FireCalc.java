@@ -46,4 +46,16 @@ public class FireCalc {
         }
         return mFireQuantity;
     }
+//                根据输入等级计算经验值
+//                EditText editText = findViewById(R.id.editText);
+//                TextView textView = findViewById(R.id.textView5);
+//                String inputLevel = editText.getText().toString(); 输入等级
+//                int level;   需要计算的等级
+//                int expSum = 0;   初始化总经验
+//                level = Integer.parseInt(inputLevel); 获得待计算等级
+//                for (int i = 0; i < level; i++) {
+//                    expSum += i * (i + 1) / 2;
+//                }
+//                expSum = expSum * 100; 得到总经验值
+//                textView.setText(expSum + "");
 }

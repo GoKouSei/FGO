@@ -3,24 +3,63 @@
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
     android:layout_gravity="start"
-    android:background="#999999"
+    android:background="#FBF7E8"
     android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="8dp"
+        android:paddingTop="8dp"
+        android:src="@drawable/fgo_logo1" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/black_line" />
 
     <TextView
         android:id="@+id/leftSlip_tev_rxjw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:onClick="leftSlipSelect"
         android:padding="5sp"
         android:text="茹西教王"
         android:textSize="35sp" />
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/black_line" />
+
+    <TextView
+        android:id="@+id/leftSlip_tev_fgowiki"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:onClick="leftSlipSelect"
+        android:padding="5sp"
+        android:text="FOG中文wiki"
+        android:textSize="35sp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/black_line" />
+
     <TextView
         android:id="@+id/leftSlip_tev_fireCalc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:onClick="leftSlipSelect"
         android:padding="5sp"
         android:text="狗粮计算"
         android:textSize="35sp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/black_line" />
 </LinearLayout>
