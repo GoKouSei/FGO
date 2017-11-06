@@ -1,7 +1,6 @@
 package com.gokousei.fgo_tools;
 
 import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
@@ -23,20 +22,22 @@ public class BaseActivity extends AppCompatActivity {
         translucentStatusNavigation();
     }
 
+    //设置透明状态栏和导航栏
     private void translucentStatusNavigation() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            //透明状态栏
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) { //判断SDK版本
+        //透明状态栏
 //            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            //透明导航栏
+        //透明导航栏
 //            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-        }
+//        }
     }
+
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
-        if (ev.getAction() == MotionEvent.ACTION_DOWN) {
-            // 获得当前得到焦点的View，一般情况下就是EditText（特殊情况就是轨迹求或者实体案件会移动焦点）
+        if (ev.getAction() == MotionEvent.ACTION_DOWN) {//判断触摸事件是否是点击
+            // 获得当前得到焦点的View，一般情况下就是EditText（特殊情况就是轨迹球或者实体按键会移动焦点）
             View v = getCurrentFocus();
-            if (isShouldHideInput(v, ev)) {
+            if (isShouldHideInput(v, ev)) {//判断是否隐藏输入法键盘
                 hideSoftInput(v.getWindowToken());
             }
         }
@@ -51,11 +52,12 @@ public class BaseActivity extends AppCompatActivity {
      * @return
      */
     private boolean isShouldHideInput(View v, MotionEvent event) {
-        if (v != null && (v instanceof EditText)) {
+        if (v != null && (v instanceof EditText)) {//判断传递的view是否是EditText
             int[] l = {0, 0};
-            v.getLocationInWindow(l);
+            v.getLocationInWindow(l);//获得view的窗口坐标
             int left = l[0], top = l[1], bottom = top + v.getHeight(), right = left
                     + v.getWidth();
+            //通过点击的坐标和view的坐标对比判断点击的是否EditText
             if (event.getX() > left && event.getX() < right && event.getY() > top && event.getY() < bottom) {
                 // 点击EditText的事件，忽略它。
                 return false;
@@ -78,7 +80,7 @@ public class BaseActivity extends AppCompatActivity {
             im.hideSoftInputFromWindow(token, InputMethodManager.HIDE_NOT_ALWAYS);
         }
     }
-
+    //单例显示Toast方法
     protected void makeToast(String message) {
         if (toast == null) {
             toast = Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT);
