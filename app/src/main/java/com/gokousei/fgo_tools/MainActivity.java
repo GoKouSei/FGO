@@ -18,7 +18,6 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -29,42 +28,48 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
+/**
+ * The type Main activity.
+ */
 public class MainActivity extends BaseActivity {
 
-    TextView mTevFireCalc;
-    TextView mTevFireQuantity;
-    EditText mEdtCurLevel;
-    EditText mEdtAimsLevel;
-    Button mBtnConfirm;
+    TextView mTevFireQuantity; //狗粮计算界面 计算结果输出
+    EditText mEdtCurLevel; //狗粮计算界面 当前等级的输入框
+    EditText mEdtAimsLevel; //狗粮计算界面 目标等级的输入框
+    Button mBtnConfirm; //狗粮计算界面 计算按钮
     Resources mRes;
-    Spinner mSpinIsWithRank;
-    WebView mWebView;
+    Spinner mSpinIsWithRank; //狗粮计算界面 符合职阶与否下拉选择
+    WebView mWebView; //WebView
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        init();
-        mClick();
+        init(); //初始化方法
+        mListener(); //事件监听方法
     }
 
     @Override
     protected void onResume() {
-        mWebView.getSettings().setJavaScriptEnabled(true);
+        if (mWebView!=null) {
+            mWebView.getSettings().setJavaScriptEnabled(true); //启用JS支持
+        }
         super.onResume();
     }
 
     @Override
     protected void onStop() {
-        mWebView.getSettings().setJavaScriptEnabled(false);
+        if (mWebView!=null) {
+            mWebView.getSettings().setJavaScriptEnabled(false); //关闭JS支持
+        }
         super.onStop();
     }
 
     @Override
     protected void onDestroy() {
-        if (mWebView != null) {
+        if (mWebView != null) { //释放WebView资源
             mWebView.loadDataWithBaseURL(null, "", "text/html", "utf-8", null);
-            mWebView.clearHistory();
+            mWebView.clearHistory(); //清除历史
             ((ViewGroup) mWebView.getParent()).removeView(mWebView);
             mWebView.destroy();
             mWebView = null;
@@ -73,16 +78,15 @@ public class MainActivity extends BaseActivity {
     }
 
     //初始化操作
-    public void init() {
+    private void init() {
         mRes = getResources();
-        mTevFireCalc = findViewById(R.id.leftSlip_tev_fireCalc);
-        mEdtCurLevel = findViewById(R.id.fireCalc_edt_curLevel);
-        mEdtAimsLevel = findViewById(R.id.fireCalc_edt_aimsLevel);
-        mBtnConfirm = findViewById(R.id.fireCalc_btn_confirm);
-        mTevFireQuantity = findViewById(R.id.fireCalc_tev_quantity);
-        mSpinIsWithRank = findViewById(R.id.fireCalc_spin_isWithRank);
-        mSpinIsWithRank.setSelection(0);
-        mWebView = findViewById(R.id.web_view);
+        mEdtCurLevel = findViewById(R.id.fireCalc_edt_curLevel); //当前等级输入框
+        mEdtAimsLevel = findViewById(R.id.fireCalc_edt_aimsLevel); //目标等级输入框
+        mBtnConfirm = findViewById(R.id.fireCalc_btn_confirm); //计算按钮
+        mTevFireQuantity = findViewById(R.id.fireCalc_tev_quantity); //显示计算结果
+        mSpinIsWithRank = findViewById(R.id.fireCalc_spin_isWithRank); //选择是否符合职阶下拉框
+        mSpinIsWithRank.setSelection(0); //设置下拉框默认选择
+        mWebView = findViewById(R.id.web_view); //初始化WebView
     }
 
     //侧滑界面项点击事件
@@ -95,24 +99,26 @@ public class MainActivity extends BaseActivity {
         viewFireCalc.setVisibility(View.GONE);
         viewWeb.setVisibility(View.GONE);
         mLinearLayout.setVisibility(View.GONE);
-        switch (view.getId()) {
+        switch (view.getId()) { //根据点击的选项显示隐藏界面
             case R.id.leftSlip_tev_rxjw:
                 viewWeb.setVisibility(View.VISIBLE);
                 url = "http://kazemai.github.io/fgo-vz/";
-                mVebView(url);
+                mWebView(url);
                 break;
             case R.id.leftSlip_tev_fgowiki:
                 viewWeb.setVisibility(View.VISIBLE);
                 url = "http://fgowiki.com/";
-                mVebView(url);
+                mWebView(url);
                 break;
             case R.id.leftSlip_tev_fireCalc:
                 viewFireCalc.setVisibility(View.VISIBLE);
         }
-        mDrawerLayout.closeDrawers();
+        mDrawerLayout.closeDrawers(); //关闭侧滑界面
     }
 
-    public void mClick() {
+    //事件监听
+    private void mListener() {
+        //狗粮计算界面计算按钮点击事件
         mBtnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -141,21 +147,16 @@ public class MainActivity extends BaseActivity {
                 mTevFireQuantity.setText(fireQuantity + "");
             }
         });
-        mSpinIsWithRank.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//                mTevFireQuantity.setText(new FireCalc(mRes).fireQuantity() + "");
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
     }
 
-    public void mVebView(String url) {
+    /**
+     * WebView的初始化和设置方法
+     *
+     * @param url 载入的地址
+     */
+    public void mWebView(String url) {
 //        final TextView textView=findViewById(R.id.web_tev_title);
+        //用来显示当前页面载入进度
         final Snackbar sk = Snackbar.make(mWebView, "载入中..", Snackbar.LENGTH_INDEFINITE);
         mWebView.clearHistory();
         WebSettings mWebSettings = mWebView.getSettings();
@@ -165,7 +166,7 @@ public class MainActivity extends BaseActivity {
         mWebSettings.setJavaScriptEnabled(true);
 
         //设置自适应屏幕，两者合用
-        mWebSettings.setUseWideViewPort(true); //将图片调整到适合webview的大小
+        mWebSettings.setUseWideViewPort(true); //将图片调整到适合WebView的大小
         mWebSettings.setLoadWithOverviewMode(true); // 缩放至屏幕的大小
 
         //缩放操作
@@ -173,7 +174,7 @@ public class MainActivity extends BaseActivity {
         mWebSettings.setBuiltInZoomControls(true); //设置内置的缩放控件若为false 则不可缩放
         mWebSettings.setDisplayZoomControls(false); //隐藏原生的缩放控件
 
-        mWebSettings.setCacheMode(WebSettings.LOAD_DEFAULT); //设置webview中缓存方式为默认
+        mWebSettings.setCacheMode(WebSettings.LOAD_DEFAULT); //设置WebView中缓存方式为默认
         //缓存模式如下:
         //LOAD_CACHE_ONLY:不使用网络只读取本地缓存数据
         //LOAD_DEFAULT:根据cache-control决定是否从网络上取数据
@@ -249,11 +250,11 @@ public class MainActivity extends BaseActivity {
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 view.loadUrl(url);
                 return true;
-            }//打开网页是不调用系统浏览器而是在此webview打开
+            }//打开网页是不调用系统浏览器而是在此WebView打开
 
             @Override
-            public void  onPageStarted(WebView view, String url, Bitmap favicon) {
-                super.onPageStarted(view,url,favicon);
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                super.onPageStarted(view, url, favicon);
             }//页面开始加载时调用
 
             @Override
@@ -268,35 +269,37 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if ((keyCode == KeyEvent.KEYCODE_BACK) && mWebView.canGoBack()) {
-            mWebView.goBack();
-            return true;
+        if (mWebView!=null) {
+            if ((keyCode == KeyEvent.KEYCODE_BACK) && mWebView.canGoBack()) {
+                mWebView.goBack(); //按返回键后退
+                return true;
+            }
         }
         return super.onKeyDown(keyCode, event);
     }
 
     public void loadData(View view) {
-        new Thread(runnable).start();
-    }
+        new Thread(getData).start();
+    } //启动线程
 
-    Runnable runnable = new Runnable() {
+    Runnable getData = new Runnable() {
         @Override
-        public void run() {
+        public void run() { //使用Jsoup获取网页指定数据
             try {
                 Document doc = Jsoup.connect("http://fgowiki.com/").get();
                 Elements game = doc.select("div.header-container");
 //               str = game.get(0).select("ul").select("li").select("a").get(0).text();
                 String str = BASE_URL + game.select("ul").select("li").select("a").get(0).attr("href");
-                handler.sendEmptyMessage(0);
+                setMessage.sendEmptyMessage(0); //使用handle更改UI
             } catch (Exception e) {
                 Log.d(LOG_TAG, e.toString());
             }
         }
     };
 
-    Handler handler = new Handler() {
+    Handler setMessage = new Handler() {
         @Override
-        public void handleMessage(Message msg) {
+        public void handleMessage(Message msg) { //设置Text
             super.handleMessage(msg);
 //            tevGame.setText(str);
         }

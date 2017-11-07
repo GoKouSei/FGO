@@ -10,7 +10,7 @@ public class FireCalc {
     /**
      * 当前等级
      */
-    private int mCurLevel;
+    private int mCurLevel; //当前等级
     private int mAimsLevel; //目标等级
     private int mWithFireExp; //同职阶种火经验
     private int mUnWithFireExp; //不同职阶种火经验

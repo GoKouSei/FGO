@@ -1,11 +1,13 @@
 package com.gokousei.fgo_tools;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -19,17 +21,17 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        translucentStatusNavigation();
+//        translucentStatusNavigation();
     }
 
     //设置透明状态栏和导航栏
     private void translucentStatusNavigation() {
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) { //判断SDK版本
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) { //判断SDK版本
         //透明状态栏
-//            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         //透明导航栏
-//            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-//        }
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+        }
     }
 
     @Override
