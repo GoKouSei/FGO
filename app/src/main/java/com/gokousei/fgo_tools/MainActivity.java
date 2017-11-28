@@ -9,6 +9,8 @@ import android.os.Message;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -28,9 +30,6 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
-/**
- * The type Main activity.
- */
 public class MainActivity extends BaseActivity {
 
     TextView mTevFireQuantity; //狗粮计算界面 计算结果输出
@@ -40,6 +39,7 @@ public class MainActivity extends BaseActivity {
     Resources mRes;
     Spinner mSpinIsWithRank; //狗粮计算界面 符合职阶与否下拉选择
     WebView mWebView; //WebView
+    RecyclerView mRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +51,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void onResume() {
-        if (mWebView!=null) {
+        if (mWebView != null) {
             mWebView.getSettings().setJavaScriptEnabled(true); //启用JS支持
         }
         super.onResume();
@@ -59,7 +59,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void onStop() {
-        if (mWebView!=null) {
+        if (mWebView != null) {
             mWebView.getSettings().setJavaScriptEnabled(false); //关闭JS支持
         }
         super.onStop();
@@ -87,6 +87,11 @@ public class MainActivity extends BaseActivity {
         mSpinIsWithRank = findViewById(R.id.fireCalc_spin_isWithRank); //选择是否符合职阶下拉框
         mSpinIsWithRank.setSelection(0); //设置下拉框默认选择
         mWebView = findViewById(R.id.web_view); //初始化WebView
+        mRecyclerView = findViewById(R.id.servant);
+//        mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,OrientationHelper.VERTICAL));
+//        mRecyclerView.setLayoutManager(new GridLayoutManager(this,3));
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.setAdapter(new ServantAdapter(this));
     }
 
     //侧滑界面项点击事件
@@ -95,7 +100,9 @@ public class MainActivity extends BaseActivity {
         LinearLayout mLinearLayout = findViewById(R.id.main_group);
         View viewFireCalc = findViewById(R.id.main_include_loadFireCalc);
         View viewWeb = findViewById(R.id.main_include_loadWeb);
+        View viewServant = findViewById(R.id.servant);
         String url;
+        viewServant.setVisibility(View.GONE);
         viewFireCalc.setVisibility(View.GONE);
         viewWeb.setVisibility(View.GONE);
         mLinearLayout.setVisibility(View.GONE);
@@ -112,6 +119,12 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.leftSlip_tev_fireCalc:
                 viewFireCalc.setVisibility(View.VISIBLE);
+            case R.id.leftSlip_tev_servant:
+        }
+        if ((view.getId() != R.id.leftSlip_tev_rxjw) && (view.getId() != R.id.leftSlip_tev_fgowiki)) {
+            if (!mWebView.getUrl().equals("about:blank")) { //判断载入的是否空白页
+                mWebView.loadDataWithBaseURL(null, "", "text/html", "utf-8", null);
+            }
         }
         mDrawerLayout.closeDrawers(); //关闭侧滑界面
     }
@@ -269,7 +282,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (mWebView!=null) {
+        if (mWebView != null) {
             if ((keyCode == KeyEvent.KEYCODE_BACK) && mWebView.canGoBack()) {
                 mWebView.goBack(); //按返回键后退
                 return true;

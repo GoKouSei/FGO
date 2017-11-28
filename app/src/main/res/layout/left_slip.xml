@@ -62,4 +62,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@drawable/black_line" />
+    <TextView
+        android:id="@+id/leftSlip_tev_servant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:onClick="leftSlipSelect"
+        android:padding="5sp"
+        android:text="Servant"
+        android:textSize="35sp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/black_line" />
 </LinearLayout>

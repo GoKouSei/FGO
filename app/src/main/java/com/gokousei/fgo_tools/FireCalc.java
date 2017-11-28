@@ -3,9 +3,6 @@ package com.gokousei.fgo_tools;
 import android.content.Context;
 import android.content.res.Resources;
 
-/**
- * The type Fire calc.
- */
 public class FireCalc {
     /**
      * 当前等级
