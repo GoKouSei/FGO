@@ -9,6 +9,8 @@ import android.os.Message;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -85,13 +87,15 @@ public class MainActivity extends BaseActivity {
         mBtnConfirm = findViewById(R.id.fireCalc_btn_confirm); //计算按钮
         mTevFireQuantity = findViewById(R.id.fireCalc_tev_quantity); //显示计算结果
         mSpinIsWithRank = findViewById(R.id.fireCalc_spin_isWithRank); //选择是否符合职阶下拉框
-        mSpinIsWithRank.setSelection(0); //设置下拉框默认选择
+        mSpinIsWithRank.setSelection(0); //设置下拉框默认选择项
         mWebView = findViewById(R.id.web_view); //初始化WebView
-        mRecyclerView = findViewById(R.id.servant);
-//        mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,OrientationHelper.VERTICAL));
-//        mRecyclerView.setLayoutManager(new GridLayoutManager(this,3));
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mRecyclerView.setAdapter(new ServantAdapter(this));
+        mRecyclerView = findViewById(R.id.servant);//初始化RecyclerView
+//        mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,OrientationHelper.VERTICAL));//线性宫格显示 类似瀑布流
+//        mRecyclerView.setLayoutManager(new GridLayoutManager(this,3));//线性宫格显示 类似Grid View
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));//线性显示 类似ListView
+        mRecyclerView.setAdapter(new ServantAdapter(this));//设置adapter
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));//横向分割线
+//        mRecyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.HORIZONTAL));//垂直分割线
     }
 
     //侧滑界面项点击事件
@@ -119,7 +123,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.leftSlip_tev_fireCalc:
                 viewFireCalc.setVisibility(View.VISIBLE);
+                break;
             case R.id.leftSlip_tev_servant:
+                break;
         }
         if ((view.getId() != R.id.leftSlip_tev_rxjw) && (view.getId() != R.id.leftSlip_tev_fgowiki)) {
             if (!mWebView.getUrl().equals("about:blank")) { //判断载入的是否空白页
