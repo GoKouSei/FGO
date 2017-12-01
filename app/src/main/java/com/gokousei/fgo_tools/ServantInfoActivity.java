@@ -11,5 +11,6 @@ public class ServantInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_servant_info);
         servantName=getIntent().getExtras().getString("servant_name");
+
     }
 }

@@ -1,481 +1,547 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="5dp">
+    android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/servant_info_viewGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="1dp"
         android:orientation="vertical">
 
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="#000000"
+            android:background="@color/colorBlack"
             android:columnCount="3"
             android:orientation="horizontal"
+            android:paddingEnd="1dp"
+            android:paddingStart="1dp"
+            android:paddingTop="1dp"
             android:rowCount="4">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
                 android:layout_columnSpan="1"
                 android:layout_margin="1dp"
                 android:layout_rowSpan="4"
-                android:background="#ffffff"
-                android:src="@drawable/servant_portrait_000000001" />
+                android:background="@color/colorWhite"
+                android:src="@drawable/servant_status_001_1" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
-                android:layout_rowWeight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="名称" />
+                android:text="真名" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
-                android:layout_rowWeight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="名称" />
+                android:text="星级" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
                 android:layout_rowWeight="3"
-                android:background="#ffffff"
-                android:gravity="center"
                 android:text="玛修·基列莱特\n玛修·基列莱特" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
                 android:layout_rowWeight="3"
-                android:background="#ffffff"
-                android:gravity="center"
                 android:text="★★★\n★★★★" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
-                android:layout_rowWeight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="名称" />
+                android:text="职阶" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
-                android:layout_rowWeight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="名称" />
+                android:text="性别" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
                 android:layout_rowWeight="3"
-                android:background="#ffffff"
-                android:gravity="center"
                 android:text="Shielder" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
                 android:layout_rowWeight="3"
-                android:background="#ffffff"
-                android:gravity="center"
                 android:singleLine="false"
                 android:text="女" />
         </GridLayout>
 
         <GridLayout
+            android:id="@+id/servant_info_gridLayout_property"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="1dp"
-            android:background="#000000"
-            android:columnCount="6"
-            android:rowCount="6">
+            android:background="@color/colorBlack"
+            android:columnCount="8"
+            android:orientation="horizontal"
+            android:paddingEnd="1dp"
+            android:paddingStart="1dp"
+            android:rowCount="8">
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
-                android:layout_rowWeight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="名称" />
+                android:layout_columnSpan="2"
+                android:text="HP" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
-                android:layout_rowWeight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="名称" />
+                android:layout_columnSpan="2"
+                android:text="ATK" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
-                android:layout_rowWeight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="名称" />
+                android:text="画师" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
-                android:layout_rowWeight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="名称" />
+                android:text="声优" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
-                android:layout_rowWeight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="名称" />
+                android:text="属性" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
-                android:layout_rowWeight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="名称" />
+                android:text="分类" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
-                android:layout_rowWeight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="名称" />
+                android:layout_columnSpan="2"
+                android:text="1854/10302\n2060/11516" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
-                android:layout_rowWeight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="名称" />
+                android:layout_columnSpan="2"
+                android:text="1261/6791\n1455/7815" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
-                android:layout_rowWeight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="名称" />
+                android:text="武内崇" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
-                android:layout_rowWeight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="名称" />
+                android:text="高桥李依" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
-                android:layout_rowWeight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="名称" />
+                android:text="秩序·善" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
-                android:layout_rowWeight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="名称" />
+                android:text="地" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
-                android:layout_rowWeight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="名称" />
+                android:layout_rowSpan="2"
+                android:text="指令卡" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
-                android:layout_rowWeight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="名称" />
+                android:layout_columnSpan="2"
+                android:text="Arts" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
-                android:layout_rowWeight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="名称" />
+                android:layout_columnSpan="2"
+                android:text="Buster" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
-                android:layout_rowWeight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="名称" />
+                android:layout_columnSpan="2"
+                android:text="Quick" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
-                android:layout_rowWeight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="名称" />
+                android:text="Extra" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
-                android:layout_rowWeight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="名称" />
+                android:layout_columnSpan="2"
+                android:text="2张 2Hit" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
-                android:layout_rowWeight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="名称" />
+                android:layout_columnSpan="2"
+                android:text="2张 1Hit" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
-                android:layout_rowWeight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="名称" />
+                android:layout_columnSpan="2"
+                android:text="2张 2Hit" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
-                android:layout_rowWeight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="名称" />
+                android:text="1Hit" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
-                android:layout_rowWeight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="名称" />
+                android:layout_columnSpan="2"
+                android:layout_rowSpan="2"
+                android:text="隐藏属性" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
-                android:layout_rowWeight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="名称" />
+                android:layout_columnSpan="2"
+                android:text="星星获得率" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
-                android:layout_rowWeight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="名称" />
+                android:layout_columnSpan="2"
+                android:text="星星分配比重" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
-                android:layout_rowWeight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="名称" />
+                android:layout_columnSpan="2"
+                android:text="被即死概率" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
-                android:layout_rowWeight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="名称" />
+                android:layout_columnSpan="2"
+                android:text="9.9%" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
-                android:layout_rowWeight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="名称" />
+                android:layout_columnSpan="2"
+                android:text="99" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
-                android:layout_rowWeight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="名称" />
+                android:layout_columnSpan="2"
+                android:text="24.5%" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
-                android:layout_rowWeight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="名称" />
+                android:layout_columnSpan="2"
+                android:layout_rowSpan="2"
+                android:text="NP获得" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
-                android:layout_rowWeight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="名称" />
+                android:text="Arts" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
-                android:layout_rowWeight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="名称" />
+                android:text="Buster" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
-                android:layout_rowWeight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="名称" />
+                android:text="Quick" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
-                android:layout_rowWeight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="名称" />
+                android:text="Extra" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
-                android:layout_rowWeight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="名称" />
+                android:text="宝具" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
-                android:layout_rowWeight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="名称" />
+                android:text="受击" />
 
             <TextView
+                style="@style/servant_info_tev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dp"
-                android:layout_rowWeight="1"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="名称" />
+                android:text="0.84%" />
+
+            <TextView
+                style="@style/servant_info_tev"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.84%" />
+
+            <TextView
+                style="@style/servant_info_tev"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.84%" />
+
+            <TextView
+                style="@style/servant_info_tev"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.84%" />
+
+            <TextView
+                style="@style/servant_info_tev"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.84%" />
+
+            <TextView
+                style="@style/servant_info_tev"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3%" />
+
+            <TextView
+                style="@style/servant_info_tev"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="特性" />
+
+            <TextView
+                style="@style/servant_info_tev"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnSpan="7"
+                android:singleLine="false"
+                android:text="骑乘,人形,被[天地乖离开辟之星]克制,\n被[人类神话·雷电降临]克制" />
         </GridLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <GridLayout
+                    android:id="@+id/servant_info_gridLayout_skill_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorBlack"
+                    android:columnCount="12"
+                    android:orientation="horizontal"
+                    android:paddingEnd="1dp"
+                    android:paddingStart="1dp">
+
+                    <TextView
+                        style="@style/servant_info_tev"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_columnSpan="12"
+                        android:text="保有技能" />
+
+                    <TextView
+                        style="@style/servant_info_tev"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_columnSpan="12"
+                        android:text="今は脆き雪花の壁" />
+
+                    <TextView
+                        style="@style/servant_info_tev"
+                        android:layout_width="wrap_content"
+                        android:layout_columnSpan="6"
+                        android:layout_height="wrap_content"
+                        android:text="我方全体防御力提升[Lv](3回合)" />
+
+                    <TextView
+                        style="@style/servant_info_tev"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_columnSpan="3"
+                        android:text="7~5回合" />
+
+                    <TextView
+                        style="@style/servant_info_tev"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_columnSpan="3"
+                        android:text="初始开放" />
+
+                    <TextView
+                        style="@style/servant_info_tev"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_columnSpan="2"
+                        android:layout_rowSpan="2"
+                        android:text="数值" />
+
+                    <TextView
+                        style="@style/servant_info_tev"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_columnSpan="2"
+                        android:text="10%" />
+
+                    <TextView
+                        style="@style/servant_info_tev"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_columnSpan="2"
+                        android:text="10%" />
+
+                    <TextView
+                        style="@style/servant_info_tev"
+                        android:layout_width="wrap_content"
+                        android:layout_columnSpan="2"
+                        android:layout_height="wrap_content"
+                        android:text="10%" />
+
+                    <TextView
+                        style="@style/servant_info_tev"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_columnSpan="2"
+                        android:text="10%" />
+
+                    <TextView
+                        style="@style/servant_info_tev"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_columnSpan="2"
+                        android:text="10%" />
+
+                    <TextView
+                        style="@style/servant_info_tev"
+                        android:layout_width="wrap_content"
+                        android:layout_columnSpan="2"
+                        android:layout_height="wrap_content"
+                        android:text="10%" />
+
+                    <TextView
+                        style="@style/servant_info_tev"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_columnSpan="2"
+                        android:text="10%" />
+
+                    <TextView
+                        style="@style/servant_info_tev"
+                        android:layout_width="wrap_content"
+                        android:layout_columnSpan="2"
+                        android:layout_height="wrap_content"
+                        android:text="10%" />
+
+                    <TextView
+                        style="@style/servant_info_tev"
+                        android:layout_columnSpan="2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10%" />
+
+                    <TextView
+                        style="@style/servant_info_tev"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_columnSpan="2"
+                        android:text="10%" />
+
+                </GridLayout>
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorBlack"
+                    android:paddingEnd="1dp"
+                    android:paddingStart="1dp">
+
+                    <TextView
+                        style="@style/servant_info_tev"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="sdawasd" />
+                </GridLayout>
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorBlack"
+                    android:paddingBottom="1dp"
+                    android:paddingEnd="1dp"
+                    android:paddingStart="1dp">
+
+                    <TextView
+                        style="@style/servant_info_tev"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="sdawasd" />
+                </GridLayout>
+
+            </LinearLayout>
+        </RelativeLayout>
+
     </LinearLayout>
 </ScrollView>

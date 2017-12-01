@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">非的干不过欧的</string>
     <string name="select_servant_rare">选择从者星级</string>
+    <string name="lv"><font color="#ff0000">Lv</font></string>
 </resources>
