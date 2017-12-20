@@ -393,4 +393,9 @@
         <item></item>
         <item></item>
     </string-array>
+    <string-array name="servant_skill">
+        <item>今は脆き雪花の壁,SkillIcon_DEFUP,冷卻7回合,初期:我方全體的防禦力提升[Lv.](3回合):
+            10%,10.5%,11%,11.5%,12%,12.5%,13%,13.5%,14%,15%</item>
+        <item></item>
+    </string-array>
 </resources>
