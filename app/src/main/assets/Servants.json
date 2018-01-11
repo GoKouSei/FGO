@@ -1,62 +1,62 @@
 {
-  "Servant": [
+  "servant": [
     {
       "Summary": {
-        "No": "001",
-        "Rarity": "★★★\n★★★★",
-        "Name": "マシュ・キリエライト\n玛修·基列莱特",
-        "ServantClass": "Shielder",
-        "Attribute": "地",
-        "HP": "1854 / 10302\n2060 / 11516",
-        "ATK": "1261 / 6791\n1455 / 7815",
-        "Illustrator": "武内崇",
-        "CV": "高桥李依",
-        "Faction": "秩序・善",
-        "Gender": "女性"
+        "no": "001",
+        "rarity": "★★★\n★★★★",
+        "name": "マシュ・キリエライト\n玛修·基列莱特",
+        "servantClass": "Shielder",
+        "attribute": "地",
+        "hp": "1854 / 10302\n2060 / 11516",
+        "atk": "1261 / 6791\n1455 / 7815",
+        "illustrator": "武内崇",
+        "cv": "高桥李依",
+        "faction": "秩序・善",
+        "gender": "女性"
       }
     },
     {
       "Property": {
         "CommandCard": {
-          "Arts": [
+          "arts": [
             "2张",
             "2Hits"
           ],
-          "Buster": [
+          "buster": [
             "2张",
             "1Hit"
           ],
-          "Quick": [
+          "quick": [
             "1张",
             "2Hits"
           ],
-          "Extra": [
+          "extra": [
             "1张",
             "3Hits"
           ],
-          "LegendIncarnate": [
+          "legendIncarnate": [
             "1张",
             "1Hits"
           ]
         },
-        "NP": {
-          "Arts": "0.84%",
-          "Buster": "0.84%",
-          "Quick": "0.84%",
-          "Extra": "0.84%",
-          "LegendIncarnate": "0.84%",
-          "Defense": "3%"
+        "Np": {
+          "arts": "0.84%",
+          "buster": "0.84%",
+          "quick": "0.84%",
+          "extra": "0.84%",
+          "legendIncarnate": "0.84%",
+          "defense": "3%"
         },
         "Other": {
-          "StartRate": "9.9%",
-          "DeathRate": "24.5%",
-          "StartWeights": "99"
+          "startRate": "9.9%",
+          "deathRate": "24.5%",
+          "startWeights": "99"
         }
       }
     },
     {
       "ServantSkills": {
-        "ServantSkillOne": [
+        "servantSkillOne": [
           [
             "今は脆き雪花の壁",
             "冷却7回合",
@@ -76,7 +76,7 @@
             "skill_defenseUp"
           ]
         ],
-        "ServantSkillTwo": [
+        "servantSkillTwo": [
           "時に煙る白亜の壁",
           "冷卻9回合",
           "初始",
@@ -85,7 +85,7 @@
           "10% 11% 12% 13% 14% 15% 16% 17% 18% 20%",
           "skill_absoluteDefense"
         ],
-        "ServantSkillThree": [
+        "servantSkillThree": [
           "奮い断つ決意の盾",
           "冷卻8回合",
           "靈基再臨第2階段",
@@ -99,12 +99,12 @@
     },
     {
       "ClassSkills": {
-        "ClassSkillOne": [
+        "classSkillOne": [
           "対魔力 A",
           "自身的弱體耐性提升：20%",
           "skill_magicDefense"
         ],
-        "ClassSkillTwo": [
+        "classSkillTwo": [
           "騎乗 C",
           "自身的Quick卡性能稍微提升：6%",
           "skill_riding"
@@ -112,7 +112,7 @@
       }
     },
     {
-      "LegendIncarnate": [
+      "legendIncarnate": [
         [
           "ロード・カルデアス",
           "仮想宝具 疑似展開／人理の礎",
@@ -142,5 +142,5 @@
       ]
     }
   ],
-  "Enemy": []
+  "enemy": []
 }
