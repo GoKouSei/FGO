@@ -34,7 +34,7 @@
             "1张",
             "3Hits"
           ],
-          "legendIncarnate": [
+          "F": [
             "1张",
             "1Hits"
           ]
@@ -44,7 +44,7 @@
           "buster": "0.84%",
           "quick": "0.84%",
           "extra": "0.84%",
-          "legendIncarnate": "0.84%",
+          "NoblePhantasm": "0.84%",
           "defense": "3%"
         },
         "Other": {
@@ -112,7 +112,7 @@
       }
     },
     {
-      "legendIncarnate": [
+      "NoblePhantasm": [
         [
           "ロード・カルデアス",
           "仮想宝具 疑似展開／人理の礎",
