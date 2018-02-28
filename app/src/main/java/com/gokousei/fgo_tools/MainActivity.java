@@ -13,6 +13,10 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.InputFilter;
+import android.text.Spanned;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -34,14 +38,14 @@ import org.jsoup.select.Elements;
 
 public class MainActivity extends BaseActivity {
 
-    TextView mTevFireQuantity; //狗粮计算界面 计算结果输出
-    EditText mEdtCurLevel; //狗粮计算界面 当前等级的输入框
-    EditText mEdtAimsLevel; //狗粮计算界面 目标等级的输入框
-    Button mBtnConfirm; //狗粮计算界面 计算按钮
-    Resources mRes;
-    Spinner mSpinIsWithRank; //狗粮计算界面 符合职阶与否下拉选择
-    WebView mWebView; //WebView
-    RecyclerView mRecyclerView;
+    private TextView mTevFireQuantity; //狗粮计算界面 计算结果输出
+    private EditText mEdtCurLevel; //狗粮计算界面 当前等级的输入框
+    private EditText mEdtAimsLevel; //狗粮计算界面 目标等级的输入框
+    private Button mBtnConfirm; //狗粮计算界面 计算按钮
+    private Resources mRes;
+    private Spinner mSpinIsWithRank; //狗粮计算界面 符合职阶与否下拉选择
+    private WebView mWebView; //WebView
+    private RecyclerView mRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,9 +98,19 @@ public class MainActivity extends BaseActivity {
 //        mRecyclerView.setLayoutManager(new GridLayoutManager(this,3));//线性宫格显示 类似Grid View
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));//线性显示 类似ListView
         mRecyclerView.setAdapter(new ServantAdapter(this));//设置adapter
-        mRecyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));//横向分割线
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));//横向分割线
 //        mRecyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.HORIZONTAL));//垂直分割线
     }
+
+    private InputFilter mFilter = new InputFilter() {
+        @Override
+        public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+            if (Integer.parseInt(source.toString()) > 100) {
+                return "";
+            }
+            return null;
+        }
+    };
 
     //侧滑界面项点击事件
     public void leftSlipSelect(View view) {
@@ -128,7 +142,7 @@ public class MainActivity extends BaseActivity {
                 break;
         }
         if ((view.getId() != R.id.leftSlip_tev_rxjw) && (view.getId() != R.id.leftSlip_tev_fgowiki)) {
-            if (!mWebView.getUrl().equals("about:blank")) { //判断载入的是否空白页
+            if (mWebView != null) {
                 mWebView.loadDataWithBaseURL(null, "", "text/html", "utf-8", null);
             }
         }
@@ -151,6 +165,10 @@ public class MainActivity extends BaseActivity {
                 if (curLevel == 0) {
                     curLevel++;
                 }
+                if (curLevel > 99) {
+                    makeToast("目前等级不能大于100");
+                    return;
+                }
                 if (mEdtAimsLevel.getText().toString().equals("")) {
                     makeToast("请输入目标等级");
                     return;
@@ -159,6 +177,13 @@ public class MainActivity extends BaseActivity {
                 if (aimsLevel < curLevel) {
                     makeToast("请不要输入小于目前等级的目标等级");
                     return;
+                }
+                if (aimsLevel > 100) {
+                    makeToast("目标等级不能大于100");
+                    return;
+                }
+                if (aimsLevel == 0) {
+                    aimsLevel++;
                 }
                 int fireQuantity;
                 fireCalc = new FireCalc(mRes, MainActivity.this, curLevel, aimsLevel, isWith);
@@ -206,15 +231,15 @@ public class MainActivity extends BaseActivity {
         mWebSettings.setDefaultTextEncodingName("utf-8");//设置编码格式
 
         mWebView.setWebChromeClient(new WebChromeClient() {
-            @Override
-            public void onProgressChanged(WebView view, int newProgress) {
-                if (newProgress < 100) {
-                    String progress = newProgress + "%";
-                    sk.setText("载入中" + progress);
-                    sk.show();
-                }
-                super.onProgressChanged(view, newProgress);
-            }
+//            @Override
+//            public void onProgressChanged(WebView view, int newProgress) {
+//                if (newProgress < 100) {
+//                    String progress = newProgress + "%";
+//                    sk.setText("载入中" + progress);
+//                    sk.show();
+//                }
+//                super.onProgressChanged(view, newProgress);
+//            }
 
             @Override
             public void onReceivedTitle(WebView view, String title) {
